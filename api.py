@@ -21,17 +21,16 @@ def test_model():
 def formating_data(a):
     return a.reshape(-1,28,28,1)
 
-def reformating(text_file):
-    with open(text_file) as file:
-        text = file.read()
-        a = text.split(',')
-        a = [int(elem)/255 for elem in a]
-        a = np.array(a)
+def reformating(text):
+    
+    a = text.split(',')
+    a = [int(elem)/255 for elem in a]
+    a = np.array(a)
 
-        a = a.reshape(-1,28,28,1)
+    a = a.reshape(-1,28,28,1)
 
-        return a
+    return a
 
 
 if __name__=='__main__':
-    app.run(port=5000,debug=True)
+    app.run(host='0.0.0.0',port=5000,debug=True)
