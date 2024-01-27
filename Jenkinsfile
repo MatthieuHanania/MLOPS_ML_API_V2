@@ -2,9 +2,10 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello word') {
+        stage('docker build') {
             steps {
-                echo 'Building...'
+                bat 'docker build -t mlopsapi .'
+                bat 'docker run -d -p 5000:5000 mlopsapi'
             }
         }
 
